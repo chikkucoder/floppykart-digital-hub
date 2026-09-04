@@ -9,9 +9,10 @@ const description =
   "Call, WhatsApp or email FloppyKart for product quotes, repair bookings and CCTV or networking site visits.";
 
 export const Route = createFileRoute("/contact")({
-  validateSearch: (search: Record<string, unknown>) => ({
-    enquiry: typeof search.enquiry === "string" ? search.enquiry : undefined,
-  }),
+  validateSearch: (search: Record<string, unknown>): { enquiry?: string } => {
+    const enquiry = search["enquiry"];
+    return typeof enquiry === "string" ? { enquiry } : {};
+  },
   head: () => ({
     meta: [
       { title },
