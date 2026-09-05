@@ -10,6 +10,7 @@ import accessories from "@/assets/cat-accessories.jpg";
 import networking from "@/assets/cat-networking.jpg";
 import tv from "@/assets/cat-tv.jpg";
 import antivirus from "@/assets/product-antivirus.jpg";
+import gpu from "@/assets/cat-gpu.jpg";
 
 /**
  * Static mock catalog. Shapes intentionally mirror a future commerce API
@@ -72,6 +73,12 @@ export const categories: Category[] = [
     image: ramSsd,
   },
   {
+    slug: "graphics-cards",
+    name: "Graphics Cards",
+    description: "Dedicated NVIDIA and AMD GPUs for gaming, editing and rendering.",
+    image: gpu,
+  },
+  {
     slug: "power-supply",
     name: "Power Supply / SMPS",
     description: "ATX12V power supplies with stable, protected output.",
@@ -90,12 +97,6 @@ export const categories: Category[] = [
     image: printers,
   },
   {
-    slug: "accessories",
-    name: "Computer Accessories",
-    description: "Keyboards, mice, cables, webcams, headsets and more.",
-    image: accessories,
-  },
-  {
     slug: "antivirus-security",
     name: "Antivirus & Security",
     description: "Genuine antivirus licences and security software.",
@@ -106,6 +107,12 @@ export const categories: Category[] = [
     name: "Networking",
     description: "Routers, switches, access points and structured cabling.",
     image: networking,
+  },
+  {
+    slug: "computer-accessories",
+    name: "Computer Accessories",
+    description: "Keyboards, mice, cables, webcams, headsets and more.",
+    image: accessories,
   },
   {
     slug: "led-tvs",
@@ -130,18 +137,19 @@ export const products: Product[] = [
       { label: "Type", value: "Antivirus software licence" },
       { label: "Platform", value: "Windows PC / Laptop" },
       { label: "Licence options", value: "1 user / multi-user, 1–3 years" },
-      { label: "Delivery", value: "Retail pack or licence key" },
+      { label: "Delivery", value: "Retail pack or digital key" },
       { label: "Installation", value: "Setup & activation support available" },
+      { label: "Updates", value: "Automatic virus definitions update" },
     ],
     features: [
       "Complete Antivirus Protection",
       "Real-Time Security",
       "Web Protection",
       "Malware Protection",
-      "Privacy & Security",
-      "Easy Installation",
+      "Privacy Protection",
+      "Easy Installation & Setup",
     ],
-    badge: "Featured Product",
+    badge: "Featured Focus",
     featured: true,
   },
   {
@@ -233,6 +241,24 @@ export const products: Product[] = [
     features: ["Fast sequential speeds", "Data migration service", "Laptop & desktop compatible"],
   },
   {
+    slug: "high-performance-graphics-card",
+    name: "High Performance Dedicated GPU",
+    categorySlug: "graphics-cards",
+    categoryName: "Graphics Cards",
+    summary: "NVIDIA RTX and AMD Radeon graphics cards for video editing and 3D.",
+    description:
+      "Dedicated graphics cards with multi-fan cooling, HDMI/DisplayPort outputs, and GDDR6 VRAM for graphic designers, video editors, and gamers.",
+    price: { type: "on-request" },
+    images: [gpu, gpu],
+    specs: [
+      { label: "Chipset", value: "NVIDIA GeForce / AMD Radeon" },
+      { label: "Memory", value: "6GB / 8GB / 12GB / 16GB GDDR6" },
+      { label: "Interface", value: "PCI Express 4.0 / 5.0" },
+      { label: "Outputs", value: "HDMI 2.1, DisplayPort 1.4a" },
+    ],
+    features: ["Dual / Triple Fan Cooling", "Ray Tracing Support", "Multi-Monitor Ready"],
+  },
+  {
     slug: "atx12v-power-supply",
     name: "ATX12V Power Supply (SMPS)",
     categorySlug: "power-supply",
@@ -319,6 +345,23 @@ export const products: Product[] = [
     features: ["Component-level warranty", "Upgrade path planning", "Software installation"],
   },
   {
+    slug: "wireless-keyboard-mouse-combo",
+    name: "Wireless Desktop Accessories Combo",
+    categorySlug: "computer-accessories",
+    categoryName: "Computer Accessories",
+    summary: "Ergonomic wireless keyboard and optical mouse kit.",
+    description:
+      "Reliable 2.4GHz wireless keyboard and mouse set with long battery life, quiet keys, and plug-and-play USB nano receiver.",
+    price: { type: "on-request" },
+    images: [accessories, accessories],
+    specs: [
+      { label: "Connectivity", value: "2.4GHz Wireless USB Nano" },
+      { label: "Battery", value: "AA / AAA batteries included" },
+      { label: "Compatibility", value: "Windows / Mac / Linux" },
+    ],
+    features: ["Spill-resistant layout", "Long battery endurance", "Plug & Play setup"],
+  },
+  {
     slug: "smart-led-tv",
     name: "Smart LED TV",
     categorySlug: "led-tvs",
@@ -341,11 +384,13 @@ export const popularProductSlugs = [
   "quick-heal-antivirus-pro",
   "intel-core-processor",
   "amd-ryzen-processor",
+  "high-performance-graphics-card",
   "atx-motherboard",
   "ddr4-ddr5-ram",
   "ssd-storage",
-  "atx12v-power-supply",
   "cctv-camera-system",
+  "business-laptop",
+  "custom-desktop-pc",
 ];
 
 export const getProduct = (slug: string) => products.find((p) => p.slug === slug);
@@ -356,3 +401,4 @@ export const featuredProduct = products.find((p) => p.featured)!;
 export const popularProducts = popularProductSlugs
   .map((slug) => getProduct(slug))
   .filter((p): p is Product => Boolean(p));
+
