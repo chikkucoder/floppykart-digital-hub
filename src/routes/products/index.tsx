@@ -47,21 +47,21 @@ function ProductsPage() {
       />
 
       {/* Filter and Search Toolbar */}
-      <div className="mt-8 flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between border-y border-border py-6">
+      <div className="mt-8 flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between border-y border-slate-200 py-6">
         {/* Search Bar */}
         <div className="relative flex-1 max-w-md">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
+          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 size-4 text-slate-400" />
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search products by keyword, specs, model..."
-            className="w-full rounded-xl border border-border bg-card pl-10 pr-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none"
+            className="w-full rounded-xl border border-slate-200 bg-white pl-10 pr-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 focus:outline-none"
           />
           {searchQuery && (
             <button
               onClick={() => setSearchQuery("")}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-muted-foreground hover:text-foreground"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-slate-500 hover:text-slate-800"
             >
               Clear
             </button>
@@ -72,10 +72,10 @@ function ProductsPage() {
         <div className="flex flex-wrap items-center gap-2 overflow-x-auto pb-2 md:pb-0">
           <button
             onClick={() => setSelectedCategory("all")}
-            className={`rounded-full px-3.5 py-1.5 text-xs font-semibold whitespace-nowrap transition-all ${
+            className={`rounded-full px-3.5 py-1.5 text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
               selectedCategory === "all"
-                ? "bg-primary text-primary-foreground shadow-md"
-                : "border border-border bg-card text-muted-foreground hover:text-foreground"
+                ? "bg-emerald-600 text-white shadow-xs"
+                : "border border-slate-200 bg-white text-slate-700 hover:bg-slate-50"
             }`}
           >
             All Products ({products.length})
@@ -86,10 +86,10 @@ function ProductsPage() {
               <button
                 key={cat.slug}
                 onClick={() => setSelectedCategory(cat.slug)}
-                className={`rounded-full px-3.5 py-1.5 text-xs font-semibold whitespace-nowrap transition-all ${
+                className={`rounded-full px-3.5 py-1.5 text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
                   selectedCategory === cat.slug
-                    ? "bg-primary text-primary-foreground shadow-md"
-                    : "border border-border bg-card text-muted-foreground hover:text-foreground"
+                    ? "bg-emerald-600 text-white shadow-xs"
+                    : "border border-slate-200 bg-white text-slate-700 hover:bg-slate-50"
                 }`}
               >
                 {cat.name} {count > 0 ? `(${count})` : ""}

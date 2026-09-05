@@ -12,12 +12,20 @@ import {
   Zap,
   Star,
   Sparkles,
+  Laptop,
+  HardDrive,
+  Printer,
+  Shield,
 } from "lucide-react";
 import { motion } from "motion/react";
 import { useState } from "react";
 
-import heroImage from "@/assets/hero-composition.jpg";
-import cctvImage from "@/assets/cctv-networking.jpg";
+import laptopsImage from "@/assets/cat-laptops.jpg";
+import processorsImage from "@/assets/cat-processors.jpg";
+import cctvImage from "@/assets/cat-cctv.jpg";
+import ssdImage from "@/assets/cat-ram-ssd.jpg";
+import cctvSolutionImage from "@/assets/cctv-networking.jpg";
+
 import { CategoryCard } from "@/components/commerce/CategoryCard";
 import { ProductCard } from "@/components/commerce/ProductCard";
 import { ProductGrid } from "@/components/commerce/ProductGrid";
@@ -76,43 +84,38 @@ function Home() {
   return (
     <>
       {/* -------------------------------------------------------------------------- */}
-      {/* 1. HERO SECTION — MAJOR IMPROVEMENT                                        */}
+      {/* 1. HERO SECTION — CLEAN RETAIL & E-COMMERCE THEME                           */}
       {/* -------------------------------------------------------------------------- */}
-      <section className="relative overflow-hidden bg-background pt-12 pb-20 sm:pt-16 sm:pb-28 lg:pt-24 lg:pb-32">
-        {/* Glowing background grid backdrop */}
-        <div className="bg-grid pointer-events-none absolute inset-0 opacity-40" />
-        <div className="pointer-events-none absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 size-[600px] rounded-full bg-primary/10 blur-[140px]" />
-
-        <div className="relative mx-auto grid w-full max-w-7xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-12 lg:gap-8">
+      <section className="relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50/50 pt-8 pb-14 sm:pt-12 sm:pb-20 lg:pt-16 lg:pb-24 border-b border-slate-200/60">
+        <div className="relative mx-auto grid w-full max-w-7xl items-center gap-10 px-5 sm:px-8 lg:grid-cols-12 lg:gap-8">
+          
           {/* Left Hero Text Column */}
-          <div className="lg:col-span-7 flex flex-col items-start">
+          <div className="lg:col-span-6 flex flex-col items-start">
             <Reveal>
-              <div className="flex flex-wrap items-center gap-2 mb-4">
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-3.5 py-1 text-[11px] font-semibold tracking-wider text-primary-soft uppercase">
-                  <ShieldCheck className="size-3.5" /> Trusted Since {site.established}
-                </span>
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-primary-soft/40 bg-primary-soft/10 px-3.5 py-1 text-[11px] font-semibold tracking-wider text-primary-soft uppercase">
-                  <Sparkles className="size-3.5" /> Featured: Quick Heal Antivirus Pro
-                </span>
+              <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200/90 bg-emerald-50 px-3.5 py-1 text-[11px] font-bold tracking-wide text-emerald-800 uppercase mb-4 shadow-2xs">
+                <ShieldCheck className="size-3.5 text-emerald-600" />
+                <span>Trusted Technology Partner Since 2014</span>
               </div>
             </Reveal>
 
             <Reveal delay={0.06}>
-              <h1 className="text-4xl leading-[1.08] font-extrabold tracking-tight sm:text-5xl lg:text-6xl text-foreground">
+              <h1 className="text-3xl leading-[1.12] font-black tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
                 Technology Products.{" "}
-                <span className="text-gradient">Professional Solutions.</span>
+                <span className="text-emerald-600 font-extrabold">
+                  Professional Solutions.
+                </span>
               </h1>
             </Reveal>
 
             <Reveal delay={0.12}>
-              <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-                Trusted technology products, computer hardware, CCTV, networking and expert repair services — serving customers since 2014.
+              <p className="mt-4 max-w-xl text-sm leading-relaxed text-slate-600 sm:text-base">
+                Computers, hardware, CCTV, networking, printers and professional repair services — all from one trusted technology partner.
               </p>
             </Reveal>
 
             <Reveal delay={0.18}>
-              <div className="mt-8 flex flex-wrap gap-3.5">
-                <ActionButton asChild size="lg">
+              <div className="mt-7 flex flex-wrap gap-3">
+                <ActionButton asChild variant="primary" size="lg">
                   <Link to="/products">
                     Explore Products <ArrowRight className="size-4" />
                   </Link>
@@ -127,123 +130,164 @@ function Home() {
             </Reveal>
 
             <Reveal delay={0.24}>
-              <div className="mt-8 flex flex-wrap items-center gap-6 border-t border-border/60 pt-6 text-sm text-muted-foreground">
+              <div className="mt-7 flex flex-wrap items-center gap-5 border-t border-slate-200/80 pt-5 text-xs text-slate-600">
                 <a
                   href={site.contact.phoneHref}
-                  className="inline-flex items-center gap-2 transition-colors hover:text-foreground font-medium"
+                  className="inline-flex items-center gap-2 transition-colors hover:text-slate-900 font-semibold"
                 >
-                  <Phone className="size-4 text-primary-soft" /> {site.contact.phone}
+                  <Phone className="size-3.5 text-emerald-600" /> {site.contact.phone}
                 </a>
+                <span className="text-slate-300">•</span>
                 <a
-                  href={site.contact.whatsappHref}
+                  href={getWhatsAppUrl(undefined, "Hi FloppyKart, I want to request a price quote.")}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 transition-colors hover:text-foreground font-medium"
+                  className="inline-flex items-center gap-2 transition-colors hover:text-emerald-700 font-semibold text-emerald-600"
                 >
-                  <MessageCircle className="size-4 text-primary-soft" /> Instant WhatsApp Quote
+                  <MessageCircle className="size-3.5 text-emerald-600" /> Instant WhatsApp Quote
                 </a>
               </div>
             </Reveal>
           </div>
 
-          {/* Right Hero Visual Composition with Floating Cards */}
-          <div className="lg:col-span-5 relative mt-6 lg:mt-0">
+          {/* Right Hero Clean Retail Showcase */}
+          <div className="lg:col-span-6 relative mt-4 lg:mt-0">
             <Reveal delay={0.15}>
-              <div className="relative mx-auto max-w-md lg:max-w-none">
-                {/* Main Hero Visual Card */}
-                <div className="relative overflow-hidden rounded-3xl border border-border bg-card shadow-[var(--shadow-glow)] group">
-                  <img
-                    src={heroImage}
-                    alt="FloppyKart computer hardware and CCTV composite"
-                    className="w-full h-[380px] sm:h-[440px] object-cover transition-transform duration-700 group-hover:scale-103"
-                    width={800}
-                    height={600}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
-                  
-                  <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl border border-border/70 bg-card/90 backdrop-blur-md">
-                    <p className="text-xs font-bold text-primary-soft uppercase tracking-wider">
-                      FloppyKart Digital Hub
-                    </p>
-                    <p className="text-sm font-semibold text-foreground mt-0.5">
-                      Laptops • Desktops • CCTV • Antivirus • Repairs
-                    </p>
+              <div className="rounded-2xl border border-slate-200/90 bg-white p-4 shadow-sm">
+                <div className="flex items-center justify-between border-b border-slate-100 pb-3 mb-3.5 px-1">
+                  <div className="flex items-center gap-2">
+                    <span className="size-2.5 rounded-full bg-emerald-500 animate-pulse" />
+                    <span className="text-xs font-bold text-slate-800 uppercase tracking-wider">
+                      Featured Products & Systems
+                    </span>
                   </div>
+                  <span className="text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full">
+                    Genuine Inventory
+                  </span>
                 </div>
 
-                {/* Floating Card 1: Quick Heal Antivirus */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4, duration: 0.6 }}
-                  className="absolute -top-5 -left-4 sm:-left-8 hidden sm:flex items-center gap-3 rounded-2xl border border-primary/40 bg-card/95 p-3.5 shadow-2xl backdrop-blur-md max-w-xs"
-                >
-                  <div className="grid size-10 place-items-center rounded-xl bg-primary/20 text-primary-soft shrink-0">
-                    <ShieldCheck className="size-5" />
+                {/* 2x2 Retail Product Grid */}
+                <div className="grid grid-cols-2 gap-3">
+                  
+                  {/* Item 1: Laptops */}
+                  <div className="group relative overflow-hidden rounded-xl border border-slate-200/80 bg-slate-50/70 p-3 transition-all hover:bg-white hover:shadow-sm hover:border-slate-300">
+                    <div className="aspect-16/10 overflow-hidden rounded-lg bg-white border border-slate-100 mb-2">
+                      <img
+                        src={laptopsImage}
+                        alt="Branded Laptops"
+                        className="size-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                    </div>
+                    <span className="text-[10px] font-bold text-emerald-700 uppercase tracking-wider block">
+                      Notebooks & Laptops
+                    </span>
+                    <h3 className="text-xs font-bold text-slate-900 truncate mt-0.5">
+                      Business & Student Laptops
+                    </h3>
+                    <p className="text-[11px] font-medium text-slate-500 mt-1">
+                      Price on Request
+                    </p>
                   </div>
-                  <div>
-                    <p className="text-xs font-bold text-foreground">Quick Heal Antivirus Pro</p>
-                    <p className="text-[11px] text-primary-soft font-semibold">Current Product Focus</p>
-                  </div>
-                </motion.div>
 
-                {/* Floating Card 2: Computer Hardware */}
-                <motion.div
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5, duration: 0.6 }}
-                  className="absolute top-1/2 -right-4 sm:-right-6 hidden sm:flex items-center gap-3 rounded-2xl border border-border bg-card/95 p-3.5 shadow-2xl backdrop-blur-md"
-                >
-                  <div className="grid size-10 place-items-center rounded-xl bg-primary/10 text-primary-soft shrink-0">
-                    <Cpu className="size-5" />
+                  {/* Item 2: Processors */}
+                  <div className="group relative overflow-hidden rounded-xl border border-slate-200/80 bg-slate-50/70 p-3 transition-all hover:bg-white hover:shadow-sm hover:border-slate-300">
+                    <div className="aspect-16/10 overflow-hidden rounded-lg bg-white border border-slate-100 mb-2">
+                      <img
+                        src={processorsImage}
+                        alt="Intel & AMD Processors"
+                        className="size-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                    </div>
+                    <span className="text-[10px] font-bold text-emerald-700 uppercase tracking-wider block">
+                      Intel & AMD CPUs
+                    </span>
+                    <h3 className="text-xs font-bold text-slate-900 truncate mt-0.5">
+                      Core i3 / i5 / i7 & Ryzen
+                    </h3>
+                    <p className="text-[11px] font-medium text-slate-500 mt-1">
+                      Price on Request
+                    </p>
                   </div>
-                  <div>
-                    <p className="text-xs font-bold text-foreground">Computer Hardware</p>
-                    <p className="text-[11px] text-muted-foreground">Processors, RAM & SSDs</p>
-                  </div>
-                </motion.div>
 
-                {/* Floating Card 3: CCTV & Networking */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.6, duration: 0.6 }}
-                  className="absolute -bottom-6 left-6 hidden sm:flex items-center gap-3 rounded-2xl border border-border bg-card/95 p-3.5 shadow-2xl backdrop-blur-md"
-                >
-                  <div className="grid size-10 place-items-center rounded-xl bg-primary/10 text-primary-soft shrink-0">
-                    <Camera className="size-5" />
+                  {/* Item 3: CCTV Surveillance */}
+                  <div className="group relative overflow-hidden rounded-xl border border-slate-200/80 bg-slate-50/70 p-3 transition-all hover:bg-white hover:shadow-sm hover:border-slate-300">
+                    <div className="aspect-16/10 overflow-hidden rounded-lg bg-white border border-slate-100 mb-2">
+                      <img
+                        src={cctvImage}
+                        alt="CCTV Security System"
+                        className="size-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                    </div>
+                    <span className="text-[10px] font-bold text-emerald-700 uppercase tracking-wider block">
+                      Surveillance Systems
+                    </span>
+                    <h3 className="text-xs font-bold text-slate-900 truncate mt-0.5">
+                      HD Dome & Bullet Cameras
+                    </h3>
+                    <p className="text-[11px] font-medium text-slate-500 mt-1">
+                      Price on Request
+                    </p>
                   </div>
-                  <div>
-                    <p className="text-xs font-bold text-foreground">CCTV & Networking</p>
-                    <p className="text-[11px] text-muted-foreground">Installation & Maintenance</p>
+
+                  {/* Item 4: High Speed Storage */}
+                  <div className="group relative overflow-hidden rounded-xl border border-slate-200/80 bg-slate-50/70 p-3 transition-all hover:bg-white hover:shadow-sm hover:border-slate-300">
+                    <div className="aspect-16/10 overflow-hidden rounded-lg bg-white border border-slate-100 mb-2">
+                      <img
+                        src={ssdImage}
+                        alt="RAM & SSD Upgrades"
+                        className="size-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                    </div>
+                    <span className="text-[10px] font-bold text-emerald-700 uppercase tracking-wider block">
+                      Memory & Storage
+                    </span>
+                    <h3 className="text-xs font-bold text-slate-900 truncate mt-0.5">
+                      NVMe SSDs & DDR4/DDR5 RAM
+                    </h3>
+                    <p className="text-[11px] font-medium text-slate-500 mt-1">
+                      Price on Request
+                    </p>
                   </div>
-                </motion.div>
+
+                </div>
+
+                {/* Footer Trust Bar */}
+                <div className="mt-3.5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600 px-1">
+                  <span className="flex items-center gap-1 font-semibold text-slate-700">
+                    <CheckCircle2 className="size-3.5 text-emerald-600" />
+                    Official Manufacturer Supply
+                  </span>
+                  <Link to="/products" className="font-bold text-emerald-700 hover:text-emerald-800 transition-colors flex items-center gap-1">
+                    Catalog <ArrowRight className="size-3" />
+                  </Link>
+                </div>
+
               </div>
             </Reveal>
           </div>
+
         </div>
       </section>
 
       {/* -------------------------------------------------------------------------- */}
-      {/* 2. TRUST STRIP — Infinite Right to Left Marquee (Pauses on Hover)           */}
+      {/* 2. TRUST STRIP — Clean Marquee Ticker                                       */}
       {/* -------------------------------------------------------------------------- */}
-      <section className="border-y border-border/70 bg-elevated/40 py-6 overflow-hidden">
+      <section className="border-b border-slate-200 bg-slate-50 py-4.5 overflow-hidden">
         <div className="relative w-full overflow-hidden">
-          <div className="animate-marquee-track flex items-center gap-8 sm:gap-12">
-            {/* Double the items to make the infinite loop seamless */}
+          <div className="animate-marquee-track flex items-center gap-6 sm:gap-10">
             {[...trustItems, ...trustItems, ...trustItems].map((item, index) => {
               const Icon = item.icon;
               return (
                 <div
                   key={`${item.title}-${index}`}
-                  className="flex items-center gap-3 shrink-0 rounded-xl border border-border/50 bg-card/60 px-4 py-2.5 shadow-sm transition-colors hover:border-primary/50 hover:bg-card"
+                  className="flex items-center gap-3 shrink-0 rounded-lg border border-slate-200/90 bg-white px-4 py-2 shadow-2xs transition-colors hover:border-emerald-500/60"
                 >
-                  <div className="grid size-9 place-items-center rounded-lg bg-primary/15 text-primary-soft shrink-0">
+                  <div className="grid size-8 place-items-center rounded-md bg-emerald-50 text-emerald-700 shrink-0">
                     <Icon className="size-4" />
                   </div>
                   <div className="whitespace-nowrap">
-                    <p className="text-xs font-bold text-foreground">{item.title}</p>
-                    <p className="text-[10px] text-muted-foreground">{item.desc}</p>
+                    <p className="text-xs font-bold text-slate-900">{item.title}</p>
+                    <p className="text-[11px] text-slate-500">{item.desc}</p>
                   </div>
                 </div>
               );
@@ -253,23 +297,21 @@ function Home() {
       </section>
 
       {/* -------------------------------------------------------------------------- */}
-      {/* 3. FEATURED QUICK HEAL SECTION                                             */}
+      {/* 3. FEATURED QUICK HEAL SECTION — CLEAN LIGHT LAYOUT                         */}
       {/* -------------------------------------------------------------------------- */}
-      <Section className="relative overflow-hidden">
-        <div className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 size-96 rounded-full bg-primary/15 blur-[120px]" />
-        
-        <div className="relative rounded-3xl border border-primary/30 bg-card p-6 sm:p-10 lg:p-12 shadow-[var(--shadow-glow)]">
-          <div className="grid items-center gap-10 lg:grid-cols-12">
+      <Section className="bg-white">
+        <div className="rounded-2xl border border-slate-200 bg-slate-50/70 p-6 sm:p-8 lg:p-10 shadow-2xs">
+          <div className="grid items-center gap-8 lg:grid-cols-12">
             {/* Product Image */}
             <div className="lg:col-span-5">
               <Reveal>
-                <div className="relative overflow-hidden rounded-2xl border border-border bg-elevated p-2">
+                <div className="relative overflow-hidden rounded-xl border border-slate-200 bg-white p-3 shadow-xs">
                   <img
                     src={featuredProduct.images[0]}
                     alt={featuredProduct.name}
-                    className="w-full h-[320px] object-cover rounded-xl"
+                    className="w-full h-[280px] sm:h-[320px] object-cover rounded-lg"
                   />
-                  <div className="absolute top-4 left-4 rounded-full bg-primary px-3.5 py-1 text-xs font-bold text-primary-foreground uppercase tracking-wider">
+                  <div className="absolute top-4 left-4 rounded-md bg-emerald-600 px-3 py-1 text-xs font-bold text-white uppercase tracking-wider shadow-xs">
                     {featuredProduct.badge}
                   </div>
                 </div>
@@ -279,35 +321,35 @@ function Home() {
             {/* Product Content */}
             <div className="lg:col-span-7">
               <Reveal delay={0.1}>
-                <Eyebrow>Current Business Focus</Eyebrow>
-                <h2 className="mt-4 text-3xl font-extrabold sm:text-4xl text-foreground">
+                <Eyebrow>Antivirus & Security Focus</Eyebrow>
+                <h2 className="mt-3 text-2xl font-black sm:text-3xl text-slate-900">
                   {featuredProduct.name}
                 </h2>
-                <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+                <p className="mt-3 text-sm leading-relaxed text-slate-600">
                   {featuredProduct.description}
                 </p>
 
-                <div className="mt-6">
-                  <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-3">
-                    Key Protection Features:
+                <div className="mt-5">
+                  <p className="text-xs font-bold uppercase tracking-wider text-slate-700 mb-2.5">
+                    Protection Features:
                   </p>
-                  <ul className="grid gap-2.5 sm:grid-cols-2">
+                  <ul className="grid gap-2 sm:grid-cols-2">
                     {featuredProduct.features.map((feature) => (
-                      <li key={feature} className="flex items-center gap-2.5 text-sm font-medium text-foreground/90">
-                        <CheckCircle2 className="size-4 text-primary-soft shrink-0" />
+                      <li key={feature} className="flex items-center gap-2 text-xs font-semibold text-slate-800">
+                        <CheckCircle2 className="size-4 text-emerald-600 shrink-0" />
                         <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="mt-8 flex flex-wrap items-center gap-4 border-t border-border pt-6">
+                <div className="mt-7 flex flex-wrap items-center gap-4 border-t border-slate-200 pt-5">
                   <div>
-                    <span className="text-xs text-muted-foreground block">Price Status</span>
-                    <span className="text-lg font-bold text-primary-soft">Price on Request</span>
+                    <span className="text-xs text-slate-500 block">Pricing Status</span>
+                    <span className="text-base font-extrabold text-emerald-700">Price on Request</span>
                   </div>
-                  <div className="flex flex-wrap gap-3 ml-auto">
-                    <ActionButton asChild size="md">
+                  <div className="flex flex-wrap gap-2.5 ml-auto">
+                    <ActionButton asChild variant="primary" size="md">
                       <Link to="/contact" search={{ enquiry: featuredProduct.slug }}>
                         Get Best Price
                       </Link>
@@ -330,13 +372,13 @@ function Home() {
       {/* -------------------------------------------------------------------------- */}
       <Section light>
         <SectionHeading
-          eyebrow="Explore Our Products"
-          title="Everything you need for your computer, security and connectivity."
-          subtitle="Explore all 13 hardware, components, CCTV, printer, and security categories."
+          eyebrow="Browse Categories"
+          title="Hardware, Systems & IT Equipment"
+          subtitle="Explore all 13 computer hardware, CCTV, networking, printer and antivirus categories."
         />
-        <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {categories.map((category, i) => (
-            <Reveal as="li" key={category.slug} delay={i * 0.04}>
+            <Reveal as="li" key={category.slug} delay={i * 0.03}>
               <CategoryCard category={category} />
             </Reveal>
           ))}
@@ -346,64 +388,42 @@ function Home() {
       {/* -------------------------------------------------------------------------- */}
       {/* 5. POPULAR PRODUCTS SHOWCASE                                                */}
       {/* -------------------------------------------------------------------------- */}
-      <Section>
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+      <Section className="bg-white">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-5">
           <SectionHeading
             eyebrow="Popular Picks"
             title="Frequently Requested Products"
-            subtitle="Genuine computer components, laptops, antivirus licences and CCTV systems."
+            subtitle="Genuine laptops, processors, SSDs, graphics cards, printers and security software."
           />
 
           {/* Quick Category Filter Tabs */}
           <div className="flex flex-wrap gap-2">
-            <button
-              onClick={() => setSelectedCategory("all")}
-              className={`rounded-full px-4 py-2 text-xs font-semibold transition-all ${
-                selectedCategory === "all"
-                  ? "bg-primary text-primary-foreground shadow-md"
-                  : "border border-border text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              All Picks
-            </button>
-            <button
-              onClick={() => setSelectedCategory("antivirus-security")}
-              className={`rounded-full px-4 py-2 text-xs font-semibold transition-all ${
-                selectedCategory === "antivirus-security"
-                  ? "bg-primary text-primary-foreground shadow-md"
-                  : "border border-border text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              Antivirus
-            </button>
-            <button
-              onClick={() => setSelectedCategory("processors")}
-              className={`rounded-full px-4 py-2 text-xs font-semibold transition-all ${
-                selectedCategory === "processors"
-                  ? "bg-primary text-primary-foreground shadow-md"
-                  : "border border-border text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              Processors
-            </button>
-            <button
-              onClick={() => setSelectedCategory("cctv-cameras")}
-              className={`rounded-full px-4 py-2 text-xs font-semibold transition-all ${
-                selectedCategory === "cctv-cameras"
-                  ? "bg-primary text-primary-foreground shadow-md"
-                  : "border border-border text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              CCTV
-            </button>
+            {[
+              { id: "all", label: "All Products" },
+              { id: "antivirus-security", label: "Antivirus" },
+              { id: "processors", label: "Processors" },
+              { id: "cctv-cameras", label: "CCTV" },
+            ].map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setSelectedCategory(tab.id)}
+                className={`rounded-full px-3.5 py-1.5 text-xs font-semibold transition-all cursor-pointer ${
+                  selectedCategory === tab.id
+                    ? "bg-emerald-600 text-white shadow-xs"
+                    : "border border-slate-200 bg-white text-slate-700 hover:bg-slate-50"
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
           </div>
         </div>
 
-        <div className="mt-10">
+        <div className="mt-8">
           <ProductGrid products={filteredPopularProducts} />
         </div>
 
-        <div className="mt-10 text-center">
+        <div className="mt-9 text-center">
           <ActionButton asChild variant="outline" size="lg">
             <Link to="/products">
               View Full Product Catalog <ArrowRight className="size-4" />
@@ -417,21 +437,21 @@ function Home() {
       {/* -------------------------------------------------------------------------- */}
       <Section light>
         <SectionHeading
-          eyebrow="Our Technology Services"
-          title="Repair, Installation & Technical Support"
-          subtitle="In-workshop computer repairs and on-site surveillance & network deployment by our technicians."
+          eyebrow="Professional IT Services"
+          title="Computer Repair & CCTV Installation"
+          subtitle="In-workshop hardware repairs and on-site surveillance & networking setup by our technical team."
         />
-        <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {services.map((service, i) => (
-            <Reveal as="li" key={service.slug} delay={i * 0.04}>
+            <Reveal as="li" key={service.slug} delay={i * 0.03}>
               <ServiceCard service={service} />
             </Reveal>
           ))}
         </ul>
-        <div className="mt-10 text-center">
-          <ActionButton asChild variant="outline">
+        <div className="mt-9 text-center">
+          <ActionButton asChild variant="outline" size="lg">
             <Link to="/services">
-              View All 11 IT Services <ArrowRight />
+              View All 11 IT Services <ArrowRight className="size-4" />
             </Link>
           </ActionButton>
         </div>
@@ -440,41 +460,41 @@ function Home() {
       {/* -------------------------------------------------------------------------- */}
       {/* 7. CCTV + NETWORKING FEATURE SECTION                                       */}
       {/* -------------------------------------------------------------------------- */}
-      <Section>
-        <div className="rounded-3xl border border-border bg-card p-6 sm:p-10 lg:p-12 shadow-[var(--shadow-card)]">
-          <div className="grid items-center gap-10 lg:grid-cols-2">
+      <Section className="bg-white">
+        <div className="rounded-2xl border border-slate-200 bg-slate-50/60 p-6 sm:p-10 shadow-2xs">
+          <div className="grid items-center gap-8 lg:grid-cols-2">
             <Reveal>
-              <div className="overflow-hidden rounded-2xl border border-border shadow-lg">
+              <div className="overflow-hidden rounded-xl border border-slate-200 shadow-2xs bg-white">
                 <img
-                  src={cctvImage}
+                  src={cctvSolutionImage}
                   alt="CCTV camera and networking installation"
-                  className="w-full h-full object-cover"
+                  className="w-full h-[320px] sm:h-[380px] object-cover"
                 />
               </div>
             </Reveal>
 
             <Reveal delay={0.1}>
-              <Eyebrow>Surveillance & Infrastructure</Eyebrow>
-              <h2 className="mt-4 text-3xl font-extrabold sm:text-4xl text-foreground">
-                Security & Connectivity Solutions
+              <Eyebrow>Surveillance & Networking</Eyebrow>
+              <h2 className="mt-3 text-2xl font-black sm:text-3xl text-slate-900">
+                Security & Office Connectivity
               </h2>
-              <p className="mt-4 text-base text-muted-foreground leading-relaxed">
-                We provide complete site surveys, camera placement, high-definition DVR/NVR recorders, office structured cabling, and remote mobile viewing setup.
+              <p className="mt-3 text-sm text-slate-600 leading-relaxed">
+                We offer end-to-end security camera setup, DVR/NVR configuration, structured ethernet cabling, and wireless network setup for offices, shops, and homes.
               </p>
               
-              <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+              <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
                 {cctvSolutions.map((item) => (
-                  <li key={item} className="flex items-center gap-2.5 text-sm font-medium text-foreground/90">
-                    <CheckCircle2 className="size-4 text-primary-soft shrink-0" />
+                  <li key={item} className="flex items-center gap-2 text-xs font-semibold text-slate-800">
+                    <CheckCircle2 className="size-4 text-emerald-600 shrink-0" />
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
 
-              <div className="mt-8 flex flex-wrap gap-4">
-                <ActionButton asChild size="lg">
+              <div className="mt-7 flex flex-wrap gap-3">
+                <ActionButton asChild variant="primary" size="lg">
                   <Link to="/contact" search={{ enquiry: "cctv-installation" }}>
-                    Request Installation Quote <ArrowRight className="size-4" />
+                    Request Quote <ArrowRight className="size-4" />
                   </Link>
                 </ActionButton>
                 <ActionButton asChild variant="outline" size="lg">
@@ -492,37 +512,37 @@ function Home() {
       <Section light>
         <SectionHeading
           eyebrow="Why Choose FloppyKart"
-          title="Your Trusted Computer & IT Partner"
+          title="Your Local Computer & IT Partner"
           subtitle="Combining product supply with experienced technical repair and installation support."
           align="center"
         />
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           <Reveal delay={0.05}>
-            <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
-              <div className="text-3xl font-extrabold text-primary-soft mb-2">2014</div>
-              <h3 className="text-lg font-bold text-foreground">Serving Since 2014</h3>
-              <p className="mt-2 text-sm text-muted-foreground">
-                Over a decade of established experience in computer hardware sales, custom builds, and repairs.
+            <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-2xs">
+              <div className="text-2xl font-black text-emerald-700 mb-1">Since 2014</div>
+              <h3 className="text-base font-bold text-slate-900">Serving Since 2014</h3>
+              <p className="mt-2 text-xs leading-relaxed text-slate-600">
+                Over a decade of established experience in computer hardware sales, custom builds, and repair services.
               </p>
             </div>
           </Reveal>
 
           <Reveal delay={0.1}>
-            <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
-              <div className="text-3xl font-extrabold text-primary-soft mb-2">100%</div>
-              <h3 className="text-lg font-bold text-foreground">Genuine Products</h3>
-              <p className="mt-2 text-sm text-muted-foreground">
+            <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-2xs">
+              <div className="text-2xl font-black text-emerald-700 mb-1">100%</div>
+              <h3 className="text-base font-bold text-slate-900">Genuine Products</h3>
+              <p className="mt-2 text-xs leading-relaxed text-slate-600">
                 All laptops, components, software licences, and accessories are authentic with manufacturer warranty.
               </p>
             </div>
           </Reveal>
 
           <Reveal delay={0.15}>
-            <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
-              <div className="text-3xl font-extrabold text-primary-soft mb-2">Expert</div>
-              <h3 className="text-lg font-bold text-foreground">In-House Technicians</h3>
-              <p className="mt-2 text-sm text-muted-foreground">
+            <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-2xs">
+              <div className="text-2xl font-black text-emerald-700 mb-1">Expert</div>
+              <h3 className="text-base font-bold text-slate-900">In-House Technicians</h3>
+              <p className="mt-2 text-xs leading-relaxed text-slate-600">
                 Skilled technicians for component diagnostic, laptop repair, CCTV configuration, and networking.
               </p>
             </div>
@@ -533,18 +553,18 @@ function Home() {
       {/* -------------------------------------------------------------------------- */}
       {/* 9. ABOUT FLOPPYKART HIGHLIGHT                                              */}
       {/* -------------------------------------------------------------------------- */}
-      <Section>
-        <div className="rounded-3xl border border-border bg-card p-8 sm:p-12 text-center max-w-4xl mx-auto shadow-lg">
+      <Section className="bg-white">
+        <div className="rounded-2xl border border-slate-200 bg-slate-50/70 p-8 sm:p-12 text-center max-w-4xl mx-auto shadow-2xs">
           <Reveal>
             <Eyebrow>About FloppyKart</Eyebrow>
-            <h2 className="mt-4 text-3xl font-extrabold sm:text-4xl text-foreground">
+            <h2 className="mt-3 text-2xl font-black sm:text-3xl text-slate-900">
               Technology Products & Professional Solutions
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+            <p className="mt-3 text-sm leading-relaxed text-slate-600">
               Established in 2014, FloppyKart provides technology products, computer hardware and professional IT services for individuals, homes and businesses. We specialize in laptops, custom desktops, motherboards, processors, RAM, SSDs, power supplies, CCTV systems, networking, printers, Quick Heal antivirus, and LED TVs.
             </p>
-            <div className="mt-8 flex justify-center">
-              <ActionButton asChild size="lg">
+            <div className="mt-7 flex justify-center">
+              <ActionButton asChild variant="primary" size="lg">
                 <Link to="/about">
                   Learn More About Us <ArrowRight className="size-4" />
                 </Link>
@@ -555,20 +575,20 @@ function Home() {
       </Section>
 
       {/* -------------------------------------------------------------------------- */}
-      {/* 10. BRANDS COMMONLY SUPPLIED — Full Width Edge-to-Edge Compact Marquee     */}
+      {/* 10. BRANDS COMMONLY SUPPLIED — Edge-to-Edge Compact Marquee                 */}
       {/* -------------------------------------------------------------------------- */}
-      <section className="section-light py-4 border-y border-slate-200/80 overflow-hidden w-full">
+      <section className="bg-slate-100/70 py-4 border-y border-slate-200 overflow-hidden w-full">
         <div className="w-full text-center mb-2.5">
-          <p className="text-[10px] sm:text-[11px] font-bold tracking-[0.18em] text-slate-500 uppercase">
+          <p className="text-[10px] font-bold tracking-widest text-slate-500 uppercase">
             Brands Commonly Supplied & Supported
           </p>
         </div>
         <div className="relative w-full overflow-hidden">
-          <div className="animate-marquee-track flex items-center gap-4 sm:gap-6 py-1">
+          <div className="animate-marquee-track flex items-center gap-3 sm:gap-4 py-1">
             {[...brands, ...brands, ...brands, ...brands].map((brand, i) => (
               <div
                 key={`${brand}-${i}`}
-                className="shrink-0 rounded-xl border border-slate-200/90 bg-white px-5 py-2 text-xs sm:text-sm font-bold text-slate-800 shadow-sm transition-all hover:scale-105 hover:border-primary hover:text-primary hover:shadow-md"
+                className="shrink-0 rounded-lg border border-slate-200 bg-white px-4 py-1.5 text-xs font-bold text-slate-800 shadow-2xs transition-all hover:border-emerald-500 hover:text-emerald-700"
               >
                 {brand}
               </div>
@@ -580,15 +600,15 @@ function Home() {
       {/* -------------------------------------------------------------------------- */}
       {/* 11. REVIEWS / TESTIMONIALS                                                */}
       {/* -------------------------------------------------------------------------- */}
-      <Section>
+      <Section className="bg-white">
         <SectionHeading
-          eyebrow="What Our Customers Say"
-          title="Customer Testimonials"
-          subtitle="Feedback from clients on desktop builds, CCTV setup, and repair services."
+          eyebrow="Customer Feedback"
+          title="What Our Clients Say"
+          subtitle="Feedback from local clients on desktop builds, CCTV setup, and repair services."
         />
-        <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {testimonials.map((review, i) => (
-            <Reveal as="li" key={review.id} delay={i * 0.05}>
+            <Reveal as="li" key={review.id} delay={i * 0.04}>
               <ReviewCard review={review} />
             </Reveal>
           ))}
@@ -601,14 +621,14 @@ function Home() {
       <Section light>
         <Reveal className="mx-auto max-w-3xl text-center">
           <Eyebrow>Get Started Today</Eyebrow>
-          <h2 className="mt-4 text-3xl font-extrabold sm:text-4xl text-foreground">
+          <h2 className="mt-3 text-2xl font-black sm:text-3xl text-slate-900">
             Tell Us What You Need
           </h2>
-          <p className="mt-4 text-base text-muted-foreground">
+          <p className="mt-3 text-sm text-slate-600">
             Looking for a laptop, hardware component, CCTV installation, printer repair or Quick Heal antivirus? Talk to our team for the best available price quote.
           </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <ActionButton asChild size="lg">
+          <div className="mt-7 flex flex-wrap justify-center gap-3">
+            <ActionButton asChild variant="primary" size="lg">
               <Link to="/contact">
                 Enquire Now <ArrowRight className="size-4" />
               </Link>

@@ -9,23 +9,23 @@ import { cn } from "@/lib/utils";
 /* -------------------------------------------------------------------------- */
 
 export const actionButtonVariants = cva(
-  "inline-flex items-center justify-center gap-2 rounded-full font-semibold whitespace-nowrap transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 rounded-full font-semibold whitespace-nowrap transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:shrink-0 cursor-pointer",
   {
     variants: {
       variant: {
         primary:
-          "bg-primary text-primary-foreground shadow-[0_10px_30px_-12px_var(--primary)] hover:brightness-110 hover:shadow-[0_16px_40px_-12px_var(--primary)] active:scale-[0.98]",
+          "bg-emerald-600 text-white shadow-sm shadow-emerald-600/25 hover:bg-emerald-700 hover:shadow-md active:scale-[0.98]",
         outline:
-          "border border-border bg-transparent text-foreground hover:border-primary/60 hover:bg-primary/10 active:scale-[0.98]",
-        ghost: "text-foreground/80 hover:text-foreground hover:bg-foreground/5",
-        soft: "bg-primary/12 text-primary-soft hover:bg-primary/20 active:scale-[0.98]",
+          "border border-slate-300 bg-white text-slate-800 hover:bg-slate-50 hover:border-slate-400 hover:text-slate-900 active:scale-[0.98]",
+        ghost: "text-slate-700 hover:text-slate-900 hover:bg-slate-100",
+        soft: "bg-emerald-50 text-emerald-800 border border-emerald-200/80 hover:bg-emerald-100/80 active:scale-[0.98]",
         solid:
-          "bg-foreground text-background hover:opacity-90 active:scale-[0.98]",
+          "bg-slate-900 text-white hover:bg-slate-800 active:scale-[0.98]",
       },
       size: {
-        sm: "h-9 px-4 text-sm [&_svg]:size-4",
-        md: "h-11 px-6 text-sm [&_svg]:size-4",
-        lg: "h-13 px-8 text-base [&_svg]:size-5",
+        sm: "h-9 px-4 text-xs [&_svg]:size-3.5",
+        md: "h-10 px-5 text-sm [&_svg]:size-4",
+        lg: "h-12 px-7 text-sm sm:text-base [&_svg]:size-4.5",
         icon: "size-10 [&_svg]:size-[18px]",
       },
     },
@@ -66,8 +66,8 @@ export function Section({
     <section
       id={id}
       className={cn(
-        "relative overflow-hidden py-16 sm:py-20 lg:py-28",
-        light && "section-light",
+        "relative overflow-hidden py-14 sm:py-18 lg:py-24",
+        light ? "bg-slate-50/80 border-y border-slate-200/60" : "bg-white",
         className,
       )}
     >
@@ -78,7 +78,7 @@ export function Section({
 
 export function Eyebrow({ children }: { children: ReactNode }) {
   return (
-    <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3.5 py-1.5 text-[11px] font-semibold tracking-[0.16em] text-primary-soft uppercase">
+    <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200/90 bg-emerald-50 px-3.5 py-1 text-[11px] font-bold tracking-wider text-emerald-800 uppercase">
       {children}
     </span>
   );

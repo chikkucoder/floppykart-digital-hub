@@ -78,37 +78,37 @@ function ContactPage() {
       <div className="mt-10 grid gap-10 lg:grid-cols-12">
         {/* Left Column: Direct Contact Details */}
         <div className="lg:col-span-5 flex flex-col gap-6">
-          <div className="rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-card)] space-y-4">
-            <h3 className="text-lg font-bold text-foreground">Direct Contact Channels</h3>
+          <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-xs space-y-4">
+            <h3 className="text-base font-bold text-slate-900">Direct Contact Channels</h3>
             
-            <div className="space-y-3">
+            <div className="space-y-2.5">
               <ContactTile
-                icon={<Phone className="size-5" />}
+                icon={<Phone className="size-4.5 text-slate-700" />}
                 label="Mobile Phone"
                 value={site.contact.phone}
                 href={site.contact.phoneHref}
               />
               <ContactTile
-                icon={<Phone className="size-5" />}
+                icon={<Phone className="size-4.5 text-slate-700" />}
                 label="Landline"
                 value={site.contact.landline}
                 href={site.contact.landlineHref}
               />
               <ContactTile
-                icon={<MessageCircle className="size-5 text-emerald-400" />}
+                icon={<MessageCircle className="size-4.5 text-emerald-600" />}
                 label="Instant WhatsApp Chat (8109105896)"
                 value="Click to chat on WhatsApp"
                 href={getWhatsAppUrl(product ? product.name : undefined)}
                 target="_blank"
               />
               <ContactTile
-                icon={<Mail className="size-5" />}
+                icon={<Mail className="size-4.5 text-slate-700" />}
                 label="Email Support"
                 value={site.contact.email}
                 href={site.contact.emailHref}
               />
               <ContactTile
-                icon={<MapPin className="size-5" />}
+                icon={<MapPin className="size-4.5 text-slate-700" />}
                 label="Store & Workshop Address"
                 value={site.contact.address}
                 href={site.contact.mapsHref}
@@ -116,14 +116,14 @@ function ContactPage() {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-card)]">
-            <h3 className="text-sm font-bold text-foreground uppercase tracking-wider mb-3 flex items-center gap-2">
-              <Clock className="size-4 text-primary-soft" /> Business Hours
+          <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-xs">
+            <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-3 flex items-center gap-2">
+              <Clock className="size-4 text-emerald-700" /> Business Hours
             </h3>
-            <ul className="space-y-2 text-xs text-muted-foreground">
+            <ul className="space-y-2 text-xs text-slate-600">
               {site.contact.hours.map((h) => (
-                <li key={h.days} className="flex justify-between border-b border-border/50 pb-2 last:border-0">
-                  <span className="font-semibold text-foreground">{h.days}</span>
+                <li key={h.days} className="flex justify-between border-b border-slate-100 pb-2 last:border-0">
+                  <span className="font-semibold text-slate-900">{h.days}</span>
                   <span>{h.time}</span>
                 </li>
               ))}
@@ -133,21 +133,21 @@ function ContactPage() {
 
         {/* Right Column: Lead Generation Form */}
         <div className="lg:col-span-7">
-          <div className="rounded-3xl border border-border bg-card p-6 sm:p-8 shadow-[var(--shadow-card)]">
-            <h3 className="text-xl font-bold text-foreground mb-2">Send Instant Inquiry</h3>
-            <p className="text-xs text-muted-foreground mb-6">
+          <div className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-xs">
+            <h3 className="text-xl font-extrabold text-slate-900 mb-1">Send Instant Inquiry</h3>
+            <p className="text-xs text-slate-500 mb-6">
               Fill out your requirement details below to send directly via WhatsApp or inquiry request.
             </p>
 
             {formSubmitted ? (
-              <div className="rounded-2xl border border-emerald-500/30 bg-emerald-500/10 p-8 text-center space-y-4">
-                <CheckCircle2 className="size-12 text-emerald-400 mx-auto" />
-                <h4 className="text-xl font-bold text-foreground">Inquiry Sent to WhatsApp!</h4>
-                <p className="text-sm text-muted-foreground max-w-md mx-auto">
-                  Thank you, <strong className="text-foreground">{formData.name}</strong>. If WhatsApp did not open automatically, click the button below to complete chat.
+              <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-8 text-center space-y-4">
+                <CheckCircle2 className="size-12 text-emerald-600 mx-auto" />
+                <h4 className="text-xl font-bold text-slate-900">Inquiry Sent to WhatsApp!</h4>
+                <p className="text-sm text-slate-600 max-w-md mx-auto">
+                  Thank you, <strong className="text-slate-900">{formData.name}</strong>. If WhatsApp did not open automatically, click the button below to complete chat.
                 </p>
                 <div className="flex flex-wrap justify-center gap-3 pt-2">
-                  <ActionButton asChild variant="solid">
+                  <ActionButton asChild variant="primary">
                     <a href={getWhatsAppUrl(formData.requirement, `Hi FloppyKart, Name: ${formData.name}, Phone: ${formData.phone}, Requirement: ${formData.requirement}`)} target="_blank" rel="noreferrer">
                       <MessageCircle className="size-4" /> Open WhatsApp Chat
                     </a>
@@ -165,7 +165,7 @@ function ContactPage() {
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div>
-                    <label className="block text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1.5">
+                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
                       Your Full Name *
                     </label>
                     <input
@@ -174,11 +174,11 @@ function ContactPage() {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="e.g. Rahul Sharma"
-                      className="w-full rounded-xl border border-border bg-elevated px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none"
+                      className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 focus:bg-white focus:outline-none"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1.5">
+                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
                       Phone Number *
                     </label>
                     <input
@@ -187,14 +187,14 @@ function ContactPage() {
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       placeholder="e.g. 8109105896"
-                      className="w-full rounded-xl border border-border bg-elevated px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none"
+                      className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 focus:bg-white focus:outline-none"
                     />
                   </div>
                 </div>
 
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div>
-                    <label className="block text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1.5">
+                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
                       Email Address
                     </label>
                     <input
@@ -202,17 +202,17 @@ function ContactPage() {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="e.g. COMPUTERZONE33@GMAIL.COM"
-                      className="w-full rounded-xl border border-border bg-elevated px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none"
+                      className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 focus:bg-white focus:outline-none"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1.5">
+                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
                       Requirement Type
                     </label>
                     <select
                       value={formData.requirement}
                       onChange={(e) => setFormData({ ...formData, requirement: e.target.value })}
-                      className="w-full rounded-xl border border-border bg-elevated px-4 py-2.5 text-sm text-foreground focus:border-primary focus:outline-none"
+                      className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm text-slate-900 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 focus:bg-white focus:outline-none"
                     >
                       <option value="Quick Heal Antivirus Pro">Quick Heal Antivirus Pro</option>
                       <option value="Laptop Purchase / Repair">Laptop Purchase / Repair</option>
@@ -227,7 +227,7 @@ function ContactPage() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1.5">
+                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
                     Requirement Details / Message
                   </label>
                   <textarea
@@ -235,12 +235,12 @@ function ContactPage() {
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Describe your requirement, preferred brand, or repair issue..."
-                    className="w-full rounded-xl border border-border bg-elevated px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none"
+                    className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 focus:bg-white focus:outline-none"
                   />
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-3 pt-2">
-                  <ActionButton type="submit" size="lg" className="flex-1">
+                  <ActionButton type="submit" variant="primary" size="lg" className="flex-1">
                     Send Inquiry on WhatsApp <MessageCircle className="size-4" />
                   </ActionButton>
                   <ActionButton
@@ -279,16 +279,16 @@ function ContactTile({
       href={href}
       target={target}
       rel={target === "_blank" ? "noreferrer" : undefined}
-      className="group flex gap-4 rounded-xl border border-border bg-elevated/40 p-3.5 transition-all hover:border-primary/50 hover:bg-primary/5"
+      className="group flex gap-3.5 rounded-xl border border-slate-200/80 bg-slate-50/70 p-3.5 transition-all hover:border-slate-300 hover:bg-white hover:shadow-xs"
     >
-      <span className="grid size-10 shrink-0 place-items-center rounded-lg bg-primary/10 text-primary-soft transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+      <span className="grid size-9 shrink-0 place-items-center rounded-lg bg-emerald-50 text-emerald-700 transition-colors group-hover:bg-emerald-600 group-hover:text-white">
         {icon}
       </span>
       <span className="min-w-0">
-        <span className="block text-[10px] font-bold tracking-wider text-muted-foreground uppercase">
+        <span className="block text-[10px] font-bold tracking-wider text-slate-500 uppercase">
           {label}
         </span>
-        <span className="mt-0.5 block text-xs font-semibold text-foreground truncate">{value}</span>
+        <span className="mt-0.5 block text-xs font-semibold text-slate-900 truncate">{value}</span>
       </span>
     </a>
   );

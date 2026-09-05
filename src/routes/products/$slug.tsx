@@ -102,10 +102,10 @@ function ProductPage() {
                   <button
                     key={idx}
                     onClick={() => setSelectedImageIndex(idx)}
-                    className={`relative rounded-xl border p-1 bg-elevated transition-all overflow-hidden shrink-0 ${
+                    className={`relative rounded-xl border p-1 bg-slate-50 transition-all overflow-hidden shrink-0 ${
                       selectedImageIndex === idx
-                        ? "border-primary ring-2 ring-primary/40 scale-105"
-                        : "border-border opacity-70 hover:opacity-100"
+                        ? "border-emerald-600 ring-2 ring-emerald-500/40 scale-105"
+                        : "border-slate-200 opacity-70 hover:opacity-100"
                     }`}
                   >
                     <img
@@ -122,7 +122,7 @@ function ProductPage() {
           {/* Right Column: Key Details & CTAs */}
           <div className="lg:col-span-6 flex flex-col">
             <div className="flex items-center justify-between gap-4">
-              <span className="text-xs font-bold uppercase tracking-wider text-primary-soft">
+              <span className="text-xs font-bold uppercase tracking-wider text-emerald-700">
                 {product.categoryName}
               </span>
               <div className="flex items-center gap-2">
@@ -131,21 +131,21 @@ function ProductPage() {
               </div>
             </div>
 
-            <h1 className="mt-2 text-3xl font-extrabold sm:text-4xl text-foreground">
+            <h1 className="mt-2 text-3xl font-extrabold sm:text-4xl text-slate-900">
               {product.name}
             </h1>
 
-            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+            <p className="mt-4 text-base leading-relaxed text-slate-600">
               {product.summary}
             </p>
 
             {/* Price Box */}
-            <div className="mt-6 rounded-2xl border border-border bg-card p-5">
-              <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground block mb-1">
+            <div className="mt-6 rounded-xl border border-slate-200 bg-slate-50 p-5">
+              <span className="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-1">
                 Pricing & Availability
               </span>
               <PriceDisplay price={product.price} className="text-xl" />
-              <p className="text-xs text-muted-foreground mt-2">
+              <p className="text-xs text-slate-500 mt-2">
                 Hardware & licence quotes vary based on current stock, volume, and exact configuration.
               </p>
             </div>
@@ -159,71 +159,71 @@ function ProductPage() {
               </ActionButton>
               <ActionButton asChild variant="outline" size="lg">
                 <a href={site.contact.whatsappHref} target="_blank" rel="noreferrer">
-                  <MessageCircle className="size-4 text-primary-soft" /> Instant WhatsApp
+                  <MessageCircle className="size-4 text-emerald-600" /> Instant WhatsApp
                 </a>
               </ActionButton>
             </div>
 
             {/* Trust highlights checklist */}
-            <div className="mt-8 border-t border-border pt-6 space-y-2.5">
-              <div className="flex items-center gap-2.5 text-xs text-muted-foreground">
-                <ShieldCheck className="size-4 text-primary-soft shrink-0" />
+            <div className="mt-8 border-t border-slate-200 pt-6 space-y-2.5">
+              <div className="flex items-center gap-2.5 text-xs text-slate-600">
+                <ShieldCheck className="size-4 text-emerald-600 shrink-0" />
                 <span>100% Genuine product supply with manufacturer warranty</span>
               </div>
-              <div className="flex items-center gap-2.5 text-xs text-muted-foreground">
-                <CheckCircle2 className="size-4 text-primary-soft shrink-0" />
+              <div className="flex items-center gap-2.5 text-xs text-slate-600">
+                <CheckCircle2 className="size-4 text-emerald-600 shrink-0" />
                 <span>In-house technical support, installation & activation assistance</span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Tabbed Section Below: Description, Specifications, Features, FAQ */}
-        <div className="mt-16">
-          <div className="flex items-center gap-2 border-b border-border overflow-x-auto">
+        {/* Tabbed Section Below: Description, Specifications, Features */}
+        <div className="mt-14">
+          <div className="flex items-center gap-2 border-b border-slate-200 overflow-x-auto">
             <button
               onClick={() => setActiveTab("specs")}
-              className={`flex items-center gap-2 border-b-2 px-5 py-3 text-sm font-bold transition-all whitespace-nowrap ${
+              className={`flex items-center gap-2 border-b-2 px-5 py-3 text-sm font-bold transition-all whitespace-nowrap cursor-pointer ${
                 activeTab === "specs"
-                  ? "border-primary text-primary-soft"
-                  : "border-transparent text-muted-foreground hover:text-foreground"
+                  ? "border-emerald-600 text-emerald-700"
+                  : "border-transparent text-slate-500 hover:text-slate-900"
               }`}
             >
               <Sliders className="size-4" /> Specifications
             </button>
             <button
               onClick={() => setActiveTab("description")}
-              className={`flex items-center gap-2 border-b-2 px-5 py-3 text-sm font-bold transition-all whitespace-nowrap ${
+              className={`flex items-center gap-2 border-b-2 px-5 py-3 text-sm font-bold transition-all whitespace-nowrap cursor-pointer ${
                 activeTab === "description"
-                  ? "border-primary text-primary-soft"
-                  : "border-transparent text-muted-foreground hover:text-foreground"
+                  ? "border-emerald-600 text-emerald-700"
+                  : "border-transparent text-slate-500 hover:text-slate-900"
               }`}
             >
               <FileText className="size-4" /> Description
             </button>
             <button
               onClick={() => setActiveTab("features")}
-              className={`flex items-center gap-2 border-b-2 px-5 py-3 text-sm font-bold transition-all whitespace-nowrap ${
+              className={`flex items-center gap-2 border-b-2 px-5 py-3 text-sm font-bold transition-all whitespace-nowrap cursor-pointer ${
                 activeTab === "features"
-                  ? "border-primary text-primary-soft"
-                  : "border-transparent text-muted-foreground hover:text-foreground"
+                  ? "border-emerald-600 text-emerald-700"
+                  : "border-transparent text-slate-500 hover:text-slate-900"
               }`}
             >
               <CheckCircle2 className="size-4" /> Key Features
             </button>
           </div>
 
-          <div className="mt-8 rounded-2xl border border-border bg-card p-6 sm:p-8">
+          <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-xs">
             {activeTab === "specs" && (
-              <div className="overflow-hidden rounded-xl border border-border">
+              <div className="overflow-hidden rounded-xl border border-slate-200">
                 <table className="w-full text-left text-sm">
                   <tbody>
                     {product.specs.map((spec) => (
-                      <tr key={spec.label} className="border-b border-border last:border-0">
-                        <th scope="row" className="w-1/3 bg-elevated px-5 py-3.5 font-semibold text-foreground">
+                      <tr key={spec.label} className="border-b border-slate-100 last:border-0">
+                        <th scope="row" className="w-1/3 bg-slate-50 px-5 py-3.5 font-bold text-slate-800">
                           {spec.label}
                         </th>
-                        <td className="px-5 py-3.5 text-muted-foreground">{spec.value}</td>
+                        <td className="px-5 py-3.5 text-slate-600">{spec.value}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -232,10 +232,10 @@ function ProductPage() {
             )}
 
             {activeTab === "description" && (
-              <div className="prose prose-invert max-w-none text-muted-foreground leading-relaxed">
-                <p className="text-base">{product.description}</p>
-                <div className="mt-6 rounded-xl border border-border bg-elevated p-4 text-xs text-muted-foreground">
-                  <p className="font-bold text-foreground mb-1">Need help verifying compatibility?</p>
+              <div className="prose max-w-none text-slate-600 leading-relaxed">
+                <p className="text-sm sm:text-base">{product.description}</p>
+                <div className="mt-6 rounded-xl border border-slate-200 bg-slate-50 p-4 text-xs text-slate-600">
+                  <p className="font-bold text-slate-900 mb-1">Need help verifying compatibility?</p>
                   <p>
                     Contact FloppyKart technical support before purchase. We will verify your system hardware or operating environment requirements.
                   </p>
@@ -246,9 +246,9 @@ function ProductPage() {
             {activeTab === "features" && (
               <div className="grid gap-3 sm:grid-cols-2">
                 {product.features.map((feature) => (
-                  <div key={feature} className="flex items-center gap-3 rounded-xl border border-border bg-elevated p-4">
-                    <CheckCircle2 className="size-5 text-primary-soft shrink-0" />
-                    <span className="text-sm font-semibold text-foreground">{feature}</span>
+                  <div key={feature} className="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 p-4">
+                    <CheckCircle2 className="size-5 text-emerald-600 shrink-0" />
+                    <span className="text-sm font-semibold text-slate-800">{feature}</span>
                   </div>
                 ))}
               </div>

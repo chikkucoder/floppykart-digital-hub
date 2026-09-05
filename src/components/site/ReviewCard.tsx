@@ -17,7 +17,7 @@ export function ReviewCard({ review }: { review: Testimonial }) {
 
       <figcaption className="mt-5 border-t border-slate-100 pt-4">
         <span className="block text-sm font-bold text-slate-900">{review.name}</span>
-        <span className="block text-xs font-semibold text-primary mt-0.5">{review.context}</span>
+        <span className="block text-xs font-semibold text-emerald-700 mt-0.5">{review.context}</span>
       </figcaption>
     </figure>
   );

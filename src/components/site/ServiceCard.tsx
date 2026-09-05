@@ -35,11 +35,11 @@ const icons: Record<Service["icon"], LucideIcon> = {
 export function ServiceCard({ service }: { service: Service }) {
   const Icon = icons[service.icon];
   return (
-    <article className="group relative flex h-full flex-col rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-card)] transition-all duration-400 hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-[var(--shadow-glow)]">
-      <span className="grid size-11 place-items-center rounded-xl bg-primary/12 text-primary-soft transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
+    <article className="group relative flex h-full flex-col rounded-xl border border-slate-200 bg-white p-5 shadow-xs transition-all duration-200 hover:-translate-y-1 hover:border-slate-300 hover:shadow-md">
+      <div className="grid size-10 place-items-center rounded-lg bg-emerald-50 text-emerald-700 transition-colors duration-200 group-hover:bg-emerald-600 group-hover:text-white">
         <Icon className="size-5" />
-      </span>
-      <h3 className="mt-5 text-base font-semibold">
+      </div>
+      <h3 className="mt-4 text-base font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">
         <Link
           to="/services"
           hash={service.slug}
@@ -48,12 +48,12 @@ export function ServiceCard({ service }: { service: Service }) {
           {service.title}
         </Link>
       </h3>
-      <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
+      <p className="mt-2 flex-1 text-xs leading-relaxed text-slate-600">
         {service.description}
       </p>
-      <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-primary-soft">
+      <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-emerald-700 group-hover:text-emerald-800">
         Learn More
-        <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1.5" />
+        <ArrowRight className="size-3.5 transition-transform duration-200 group-hover:translate-x-1" />
       </span>
     </article>
   );
