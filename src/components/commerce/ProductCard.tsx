@@ -1,9 +1,10 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, MessageCircle } from "lucide-react";
 import type { Product } from "@/data/catalog";
 import { PriceDisplay } from "./PriceDisplay";
 import { CartButton, WishlistButton } from "./CartWishlistButtons";
 import { ActionButton } from "@/components/site/primitives";
+import { getWhatsAppUrl } from "@/data/site";
 import { cn } from "@/lib/utils";
 
 export function ProductCard({ product, className }: { product: Product; className?: string }) {
@@ -57,16 +58,35 @@ export function ProductCard({ product, className }: { product: Product; classNam
           </span>
         </div>
 
-        <ActionButton
-          asChild
-          variant="soft"
-          size="sm"
-          className="relative z-10 mt-4 w-full"
-        >
-          <Link to="/contact" search={{ enquiry: product.slug }}>
-            Get Best Price
-          </Link>
-        </ActionButton>
+        <div className="relative z-10 mt-4 flex gap-2">
+          <ActionButton
+            asChild
+            variant="soft"
+            size="sm"
+            className="flex-1"
+          >
+            <Link to="/contact" search={{ enquiry: product.slug }}>
+              Get Best Price
+            </Link>
+          </ActionButton>
+
+          <ActionButton
+            asChild
+            variant="outline"
+            size="sm"
+            className="px-3 border-emerald-500/40 text-emerald-400 hover:bg-emerald-500/10"
+            title="Inquire / Order on WhatsApp"
+          >
+            <a
+              href={getWhatsAppUrl(product.name)}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`Inquire about ${product.name} on WhatsApp`}
+            >
+              <MessageCircle className="size-4 text-emerald-400" />
+            </a>
+          </ActionButton>
+        </div>
       </div>
     </article>
   );
