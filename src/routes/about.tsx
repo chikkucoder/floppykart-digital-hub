@@ -62,20 +62,20 @@ function AboutPage() {
   return (
     <>
       {/* Hero Header */}
-      <Section className="pt-16 pb-12 sm:pt-20 sm:pb-16">
+      <Section className="pt-12 pb-10 sm:pt-16 sm:pb-14">
         <div className="mx-auto max-w-4xl text-center">
           <Reveal>
             <Eyebrow>Serving Customers Since {site.established}</Eyebrow>
-            <h1 className="mt-6 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-              Building Trust Through <span className="text-gradient">Technology Excellence</span>
+            <h1 className="mt-5 text-3xl font-black tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
+              Building Trust Through <span className="text-emerald-600 underline decoration-emerald-300 decoration-2 underline-offset-4">Technology Excellence</span>
             </h1>
-            <p className="mt-6 text-lg leading-relaxed text-muted-foreground max-w-2xl mx-auto">
+            <p className="mt-5 text-base leading-relaxed text-slate-600 max-w-2xl mx-auto">
               Established in {site.established}, FloppyKart provides genuine technology products, computer hardware, security surveillance systems, and expert IT repair services for individuals, homes, and enterprise businesses.
             </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <ActionButton asChild size="lg">
+            <div className="mt-7 flex flex-wrap justify-center gap-3">
+              <ActionButton asChild variant="primary" size="lg">
                 <Link to="/contact">
-                  Get Best Price Quote <ArrowRight />
+                  Get Best Price Quote <ArrowRight className="size-4" />
                 </Link>
               </ActionButton>
               <ActionButton asChild variant="outline" size="lg">
@@ -88,19 +88,19 @@ function AboutPage() {
 
       {/* Story & Image Section */}
       <Section light>
-        <div className="grid items-center gap-12 lg:grid-cols-2">
+        <div className="grid items-center gap-10 lg:grid-cols-2">
           <Reveal>
-            <div className="relative overflow-hidden rounded-3xl border border-border shadow-[var(--shadow-card)]">
+            <div className="relative overflow-hidden rounded-2xl border border-slate-200 shadow-2xs bg-white">
               <img
                 src={heroImage}
                 alt="FloppyKart computer hardware and IT equipment"
-                className="w-full h-full object-cover"
+                className="w-full h-[340px] sm:h-[400px] object-cover"
               />
-              <div className="absolute bottom-4 left-4 right-4 rounded-2xl border border-border/80 bg-background/90 p-4 backdrop-blur-md">
-                <p className="text-xs font-bold text-primary-soft uppercase tracking-wider">
+              <div className="absolute bottom-4 left-4 right-4 rounded-xl border border-slate-200/90 bg-white/95 p-4 backdrop-blur-md">
+                <p className="text-xs font-bold text-emerald-700 uppercase tracking-wider">
                   Established 2014
                 </p>
-                <p className="text-sm font-semibold text-foreground mt-0.5">
+                <p className="text-sm font-semibold text-slate-900 mt-0.5">
                   10+ Years of Trusted Computer Hardware & IT Solutions
                 </p>
               </div>
@@ -109,23 +109,23 @@ function AboutPage() {
 
           <Reveal delay={0.1}>
             <Eyebrow>Our Legacy & Commitment</Eyebrow>
-            <h2 className="mt-4 text-3xl font-bold sm:text-4xl">
+            <h2 className="mt-3 text-2xl font-black sm:text-3xl text-slate-900">
               Your Reliable Local Technology Partner
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+            <p className="mt-3 text-sm leading-relaxed text-slate-600">
               At FloppyKart, we believe technology should be dependable, accessible, and backed by genuine support. Whether you are assembling a custom workstation, upgrading laptop memory, securing your commercial premises with CCTV cameras, or renewing your Quick Heal antivirus protection, our skilled technical team ensures seamless service.
             </p>
-            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+            <p className="mt-3 text-sm leading-relaxed text-slate-600">
               We work directly with individuals, educational institutions, retail stores, and corporate offices to deliver tailor-made hardware packages with complete post-purchase peace of mind.
             </p>
-            <div className="mt-8 grid grid-cols-2 gap-4">
-              <div className="rounded-2xl border border-border bg-card p-4">
-                <p className="text-2xl font-bold text-primary-soft">{site.established}</p>
-                <p className="text-xs text-muted-foreground font-medium">Year Established</p>
+            <div className="mt-6 grid grid-cols-2 gap-3">
+              <div className="rounded-xl border border-slate-200 bg-white p-4">
+                <p className="text-2xl font-black text-emerald-700">{site.established}</p>
+                <p className="text-xs text-slate-500 font-semibold">Year Established</p>
               </div>
-              <div className="rounded-2xl border border-border bg-card p-4">
-                <p className="text-2xl font-bold text-primary-soft">100%</p>
-                <p className="text-xs text-muted-foreground font-medium">Genuine Brand Commitment</p>
+              <div className="rounded-xl border border-slate-200 bg-white p-4">
+                <p className="text-2xl font-black text-emerald-700">100%</p>
+                <p className="text-xs text-slate-500 font-semibold">Genuine Brand Commitment</p>
               </div>
             </div>
           </Reveal>
